@@ -1,0 +1,36 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int solution(vector<vector<int>> board, int k) {
+    int answer = 0;
+    int nRows = board.size();
+    
+    //제한사항3-1 : 0 ≤ k
+    if (k < 0) return -1004;
+    
+    //제한사항1 : 1 ≤ board의 길이 ≤ 100
+    if (nRows < 1) return -1000;
+    if (nRows > 100) return -1001;
+    
+    for (int i = 0; i < nRows; i++){
+        int nCols =board[i].size();
+        
+        //제한사항2 : 1 ≤ board[i]의 길이 ≤ 100
+        if (nCols < 1) return -1002;
+        if (nCols > 1000) return -1003;
+        
+        //제한사항3-2.  k < board의 길이 + board[i]의 길이
+        if (k >= nRows + nCols) return -1005;
+        
+        for (int j = 0; j < nCols; j++){
+            
+            if ( i+j <= k){
+                answer = answer + board[i][j];
+            }
+        }
+    }
+    
+    return answer;
+}

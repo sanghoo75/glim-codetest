@@ -1,0 +1,15 @@
+
+#define ID_ZOOM_FIT (WM_USER + 1001)
+#define ID_ZOOM_ORG (WM_USER + 1002)
+#define ID_ZOOM_IN (WM_USER + 1003)
+#define ID_ZOOM_OUT (WM_USER + 1004)
+#define ID_EDIT_MODE (WM_USER + 1005)
+
+#define ID_IMAGEVIEW (WM_USER + 5000)
+
+#define WM_UPDATE_DISPLAY (WM_USER + 4)
+
+
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif

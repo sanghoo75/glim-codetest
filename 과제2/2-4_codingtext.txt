@@ -1,0 +1,81 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+vector<int> solution(vector<int> arr, vector<bool> flag) {
+    vector<int> answer;
+    int nTrueFalseCnt = 0;
+    
+    //제한사항 1 ≤ arr의 길이 = flag의 길이 ≤ 100
+    
+    if (arr.size() != flag.size()){
+        answer.push_back(-1000);
+        return answer;
+    }
+    
+    if (arr.size() < 1) {
+        answer.push_back(-1001);
+        return answer;
+    }
+    if (arr.size() > 100) {
+        answer.push_back(-1002);
+        return answer;
+    }
+    
+    if (flag.size() < 1) {
+        answer.push_back(-1003);
+        return answer;
+    }
+    if (flag.size() > 100) {
+        answer.push_back(-1004);
+        return answer;
+    }
+    
+    if (arr.size() != flag.size()) {
+        answer.push_back(-1005);
+        return answer;
+    }
+    
+    for (int i=0; i < flag.size(); ++i){
+        //제한사항 arr의 모든 원소는 1 이상 9 이하의 정수입니다.
+        int nVal = arr[i];
+        if (nVal < 1) {
+            answer.push_back(-2000 - i);
+            return answer;
+        }
+    
+        if (nVal > 9) {
+        answer.push_back(-3000 - i);
+        return answer;
+        }
+
+        if (true == flag[i]){
+            for (int j = 0; j < nVal; ++j){
+                //2번추가
+                answer.push_back(nVal);
+                answer.push_back(nVal);    
+            }
+            
+            
+        }else if (false == flag[i]){
+            
+            for (int j = 0; j < nVal; ++j){
+                //제한사항 : 현재 X의 길이보다 더 많은 원소를 빼는 입력은 주어지지 않습니다.
+                if (0 == answer.size()) {
+                    answer.push_back(-1005);
+                    return answer;
+                }
+                
+                answer.pop_back();
+                
+            }
+        }else{
+            answer.push_back(-1006);
+            return answer;
+        }
+    }
+    
+    
+    return answer;
+}
