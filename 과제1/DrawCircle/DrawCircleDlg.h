@@ -2,6 +2,8 @@
 // DrawCircleDlg.h: 헤더 파일
 //
 
+// TEST GIT HUB Add comment
+
 #pragma once
 
 #include "CImageView.h"
